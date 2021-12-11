@@ -3,6 +3,10 @@ package com.gdd.primer_parcial.service.usuario.impl;
 import com.gdd.primer_parcial.dao.UsuariosDAO;
 import com.gdd.primer_parcial.model.Usuarios;
 import com.gdd.primer_parcial.service.patrones.stateMachine.SorteoUsuarioContexto;
+import com.gdd.primer_parcial.service.patrones.strategy.ContextStrategy;
+import com.gdd.primer_parcial.service.patrones.strategy.MensajeStrategy;
+import com.gdd.primer_parcial.service.patrones.strategy.impl.MailMensaje;
+import com.gdd.primer_parcial.service.patrones.strategy.impl.SmsMensaje;
 import com.gdd.primer_parcial.service.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,13 +47,30 @@ public class UsuarioServiceImpl implements UsuarioService {
         String estado = sorteoUsuario.accion(null);
         List<Usuarios> usuarios = usuariosDAO.getUsuariosByEstado(estado);
         for (Usuarios usuario : usuarios) {
-            /*falta hacer*/
-            /*por strategy le entrego el  mensaje por sms o mail*/
-            /*fin de stratey que hay que hacer*/
-            estado = sorteoUsuario.accion(usuario);
-            usuario.setEstado(estado);
-            this.modificaUsuario(usuario);
+            /*Strategy*/
+            MensajeStrategy mensajeStrategy = getStrategy(usuario.getContactos().getDescripcion());
+            if (mensajeStrategy != null) {
+                ContextStrategy contextStrategy = new ContextStrategy(mensajeStrategy);
+                contextStrategy.executeStrategy(usuario);
+                /*fin de strategy*/
+                /*State*/
+                estado = sorteoUsuario.accion(usuario);
+                usuario.setEstado(estado);
+                /*fin de State*/
+                /*Modifico usuario*/
+                this.modificaUsuario(usuario);
+            }
         }
 
+    }
+
+    private static MensajeStrategy getStrategy(String descripcion) {
+        MensajeStrategy strategy = null;
+        if (descripcion.equals("EMAIL")) {
+            strategy = new MailMensaje();
+        } else if (descripcion.equals("SMS")) {
+            strategy = new SmsMensaje();
+        }
+        return strategy;
     }
 }
