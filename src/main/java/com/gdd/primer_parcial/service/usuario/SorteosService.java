@@ -1,6 +1,6 @@
 package com.gdd.primer_parcial.service.usuario;
 
-import com.gdd.primer_parcial.service.composite.Premio;
+import com.gdd.primer_parcial.service.patrones.composite.Premio;
 
 public interface SorteosService {
 

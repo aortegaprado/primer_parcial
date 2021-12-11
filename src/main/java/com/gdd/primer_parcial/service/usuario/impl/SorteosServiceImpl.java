@@ -2,8 +2,8 @@ package com.gdd.primer_parcial.service.usuario.impl;
 
 import com.gdd.primer_parcial.model.UsuarioPremio;
 import com.gdd.primer_parcial.model.Usuarios;
-import com.gdd.primer_parcial.service.StateMachin.SorteoUsuario;
-import com.gdd.primer_parcial.service.composite.Premio;
+import com.gdd.primer_parcial.service.patrones.stateMachine.SorteoUsuario;
+import com.gdd.primer_parcial.service.patrones.composite.Premio;
 import com.gdd.primer_parcial.service.usuario.SorteosService;
 import com.gdd.primer_parcial.service.usuario.UsuarioService;
 import com.gdd.primer_parcial.service.usuarioPremios.UsuarioPremiosService;

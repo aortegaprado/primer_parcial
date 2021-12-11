@@ -2,7 +2,7 @@ package com.gdd.primer_parcial.service.usuario.impl;
 
 import com.gdd.primer_parcial.dao.UsuariosDAO;
 import com.gdd.primer_parcial.model.Usuarios;
-import com.gdd.primer_parcial.service.StateMachin.SorteoUsuario;
+import com.gdd.primer_parcial.service.patrones.stateMachine.SorteoUsuario;
 import com.gdd.primer_parcial.service.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,11 @@
-package com.gdd.primer_parcial.service.StateMachin.impl;
+package com.gdd.primer_parcial.service.patrones.stateMachine.impl;
 
 import com.gdd.primer_parcial.model.Usuarios;
-import com.gdd.primer_parcial.service.StateMachin.EstadoUsuario;
+import com.gdd.primer_parcial.service.patrones.stateMachine.EstadoUsuario;
 import com.gdd.primer_parcial.service.util.EstadosEnum;
+import org.springframework.stereotype.Service;
 
+@Service
 public class Participa implements EstadoUsuario {
 
 

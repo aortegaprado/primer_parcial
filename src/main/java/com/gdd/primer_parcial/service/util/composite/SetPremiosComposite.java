@@ -1,8 +1,8 @@
 package com.gdd.primer_parcial.service.util.composite;
 
-import com.gdd.primer_parcial.service.composite.Premio;
-import com.gdd.primer_parcial.service.composite.impl.RegaloHoja;
-import com.gdd.primer_parcial.service.composite.impl.RegaloCompuesto;
+import com.gdd.primer_parcial.service.patrones.composite.Premio;
+import com.gdd.primer_parcial.service.patrones.composite.impl.RegaloHoja;
+import com.gdd.primer_parcial.service.patrones.composite.impl.RegaloCompuesto;
 import org.springframework.stereotype.Service;
 
 @Service

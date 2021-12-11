@@ -1,4 +1,4 @@
-package com.gdd.primer_parcial.service.composite;
+package com.gdd.primer_parcial.service.patrones.composite;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
-package com.gdd.primer_parcial.service.StateMachin;
+package com.gdd.primer_parcial.service.patrones.stateMachine;
 
 import com.gdd.primer_parcial.model.Usuarios;
-import com.gdd.primer_parcial.service.StateMachin.impl.Ganador;
-import com.gdd.primer_parcial.service.StateMachin.impl.Participa;
-import com.gdd.primer_parcial.service.StateMachin.impl.Perdedor;
+import com.gdd.primer_parcial.service.patrones.stateMachine.impl.Ganador;
+import com.gdd.primer_parcial.service.patrones.stateMachine.impl.Participa;
+import com.gdd.primer_parcial.service.patrones.stateMachine.impl.Perdedor;
 import org.springframework.stereotype.Service;
 
 @Service

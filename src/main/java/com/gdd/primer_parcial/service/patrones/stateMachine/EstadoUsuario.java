@@ -1,4 +1,4 @@
-package com.gdd.primer_parcial.service.StateMachin;
+package com.gdd.primer_parcial.service.patrones.stateMachine;
 
 
 import com.gdd.primer_parcial.model.Usuarios;

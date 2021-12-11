@@ -1,13 +1,11 @@
-package com.gdd.primer_parcial.service.StateMachin.impl;
+package com.gdd.primer_parcial.service.patrones.stateMachine.impl;
 
 import com.gdd.primer_parcial.model.Usuarios;
-import com.gdd.primer_parcial.service.StateMachin.EstadoUsuario;
+import com.gdd.primer_parcial.service.patrones.stateMachine.EstadoUsuario;
 import com.gdd.primer_parcial.service.util.EstadosEnum;
-import org.springframework.stereotype.Component;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
-@Component
-@Qualifier("Ganador")
+@Service
 public class Ganador implements EstadoUsuario {
     @Override
     public String accion(Usuarios usuario) {

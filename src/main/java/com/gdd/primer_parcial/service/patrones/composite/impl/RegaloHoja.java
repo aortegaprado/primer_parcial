@@ -1,6 +1,6 @@
-package com.gdd.primer_parcial.service.composite.impl;
+package com.gdd.primer_parcial.service.patrones.composite.impl;
 
-import com.gdd.primer_parcial.service.composite.Premio;
+import com.gdd.primer_parcial.service.patrones.composite.Premio;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
