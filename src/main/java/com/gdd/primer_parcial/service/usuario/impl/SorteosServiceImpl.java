@@ -2,7 +2,7 @@ package com.gdd.primer_parcial.service.usuario.impl;
 
 import com.gdd.primer_parcial.model.UsuarioPremio;
 import com.gdd.primer_parcial.model.Usuarios;
-import com.gdd.primer_parcial.service.patrones.stateMachine.SorteoUsuario;
+import com.gdd.primer_parcial.service.patrones.stateMachine.SorteoUsuarioContexto;
 import com.gdd.primer_parcial.service.patrones.composite.Premio;
 import com.gdd.primer_parcial.service.usuario.SorteosService;
 import com.gdd.primer_parcial.service.usuario.UsuarioService;
@@ -18,7 +18,7 @@ import java.util.Random;
 public class SorteosServiceImpl implements SorteosService {
 
     @Autowired
-    private SorteoUsuario sorteoUsuario;
+    private SorteoUsuarioContexto sorteoUsuario;
     @Autowired
     private UsuarioService usuarioService;
     @Autowired

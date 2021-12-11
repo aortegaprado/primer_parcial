@@ -2,7 +2,7 @@ package com.gdd.primer_parcial.service.usuario.impl;
 
 import com.gdd.primer_parcial.dao.UsuariosDAO;
 import com.gdd.primer_parcial.model.Usuarios;
-import com.gdd.primer_parcial.service.patrones.stateMachine.SorteoUsuario;
+import com.gdd.primer_parcial.service.patrones.stateMachine.SorteoUsuarioContexto;
 import com.gdd.primer_parcial.service.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     private UsuariosDAO usuariosDAO;
     @Autowired
-    private SorteoUsuario sorteoUsuario;
+    private SorteoUsuarioContexto sorteoUsuario;
 
     @Override
     public List<Usuarios> getAllUsuarios() {

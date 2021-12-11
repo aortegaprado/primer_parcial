@@ -7,11 +7,11 @@ import com.gdd.primer_parcial.service.patrones.stateMachine.impl.Perdedor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SorteoUsuario {
+public class SorteoUsuarioContexto {
 
     private EstadoUsuario estado;
 
-    public SorteoUsuario() {
+    public SorteoUsuarioContexto() {
         estado = new Participa();
     }
 
