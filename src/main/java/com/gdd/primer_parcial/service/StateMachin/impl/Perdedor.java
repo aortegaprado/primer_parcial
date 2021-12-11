@@ -8,13 +8,16 @@ public class Perdedor implements EstadoUsuario {
     @Override
     public String accion(Usuarios usuario) {
         String estado = null;
-        if (usuario != null) {
+        if (usuario == null) {
+                estado = EstadosEnum.PERDEDOR.name();
+        }else{
             if (usuario.getCantIntentos() < 3) {
                 estado = EstadosEnum.PERDEDOR.name();
             } else {
 
                 estado = EstadosEnum.PARTICIPANTE.name();
             }
+
         }
         return estado;
     }
