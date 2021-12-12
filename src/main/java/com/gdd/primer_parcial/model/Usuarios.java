@@ -10,31 +10,35 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
-@Table(name="usuarios",catalog="parcial")
+@Table(name = "usuarios", catalog = "parcial")
 public class Usuarios implements java.io.Serializable {
 
     @Id
-    @GeneratedValue(strategy=IDENTITY)
-    @Column(name="ID_USUARIO", unique=true, nullable=false)
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "ID_USUARIO", unique = true, nullable = false)
     private Integer idUsuario;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="ID_CONTACTO", nullable=false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_CONTACTO", nullable = false)
     private Contactos contactos;
 
-    @Column(name="NOMBRE", nullable=false, length=100)
+    @Column(name = "NOMBRE", nullable = false, length = 100)
     private String nombre;
 
-    @Column(name="ESTADO", nullable=false, length=20)
+    @Column(name = "ESTADO", nullable = false, length = 20)
     private String estado;
 
-    @Column(name="POSICION_PREMIO")
+    @Column(name = "POSICION_PREMIO")
     private Integer posicionPremio;
 
-    @Column(name="CANT_INTENTOS", nullable=false)
+    @Column(name = "CANT_INTENTOS", nullable = false)
     private Integer cantIntentos;
+    @Column(name = "TELEFONO", length = 20)
+    private String telefono;
+    @Column(name = "EMAIL", length = 100)
+    private String email;
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="usuarios")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuarios")
     private List<UsuarioPremio> usuarioPremios;
 
 

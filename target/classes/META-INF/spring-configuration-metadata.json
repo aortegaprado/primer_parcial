@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "twilio",
+      "type": "com.gdd.primer_parcial.configuraciones.TwilioConfiguracion",
+      "sourceType": "com.gdd.primer_parcial.configuraciones.TwilioConfiguracion"
+    }
+  ],
+  "properties": [
+    {
+      "name": "twilio.account-sid",
+      "type": "java.lang.String",
+      "sourceType": "com.gdd.primer_parcial.configuraciones.TwilioConfiguracion"
+    },
+    {
+      "name": "twilio.auth-token",
+      "type": "java.lang.String",
+      "sourceType": "com.gdd.primer_parcial.configuraciones.TwilioConfiguracion"
+    },
+    {
+      "name": "twilio.trial-number",
+      "type": "java.lang.String",
+      "sourceType": "com.gdd.primer_parcial.configuraciones.TwilioConfiguracion"
+    }
+  ],
+  "hints": []
+}

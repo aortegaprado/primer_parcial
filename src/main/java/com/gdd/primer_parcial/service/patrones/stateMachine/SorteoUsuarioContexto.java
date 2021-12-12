@@ -4,6 +4,7 @@ import com.gdd.primer_parcial.model.Usuarios;
 import com.gdd.primer_parcial.service.patrones.stateMachine.impl.Ganador;
 import com.gdd.primer_parcial.service.patrones.stateMachine.impl.Participa;
 import com.gdd.primer_parcial.service.patrones.stateMachine.impl.Perdedor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,23 +12,28 @@ public class SorteoUsuarioContexto {
 
     private EstadoUsuario estado;
 
+
     public SorteoUsuarioContexto() {
-        estado = new Participa();
+        this.estado = new Participa();
     }
+
 
     public void estadoPerdedores() {
-        estado = new Perdedor();
+        this.estado = new Perdedor();
     }
+
 
     public void estadoGanadores() {
-        estado = new Ganador();
+        this.estado = new Ganador();
     }
+
 
     public void estadoAbilitado() {
-        estado = new Participa();
+        this.estado = new Participa();
     }
 
+
     public String accion(Usuarios usuario) {
-        return estado.accion(usuario);
+        return this.estado.accion(usuario);
     }
 }

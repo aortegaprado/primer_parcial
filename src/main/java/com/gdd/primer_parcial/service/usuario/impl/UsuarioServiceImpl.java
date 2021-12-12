@@ -8,6 +8,7 @@ import com.gdd.primer_parcial.service.patrones.strategy.MensajeStrategy;
 import com.gdd.primer_parcial.service.patrones.strategy.impl.MailMensaje;
 import com.gdd.primer_parcial.service.patrones.strategy.impl.SmsMensaje;
 import com.gdd.primer_parcial.service.usuario.UsuarioService;
+import com.gdd.primer_parcial.service.util.StrategyName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     private UsuariosDAO usuariosDAO;
     @Autowired
     private SorteoUsuarioContexto sorteoUsuario;
+    @Autowired
+    private ContextStrategy contextStrategy;
+
 
     @Override
     public List<Usuarios> getAllUsuarios() {
@@ -43,23 +47,32 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public void entregaMensaje() {
+        //taer un string de estado para la busqueda de usuarios
         sorteoUsuario.estadoGanadores();
         String estado = sorteoUsuario.accion(null);
+        //traer usuarios
         List<Usuarios> usuarios = usuariosDAO.getUsuariosByEstado(estado);
+
         for (Usuarios usuario : usuarios) {
+
             /*Strategy*/
-            MensajeStrategy mensajeStrategy = getStrategy(usuario.getContactos().getDescripcion());
-            if (mensajeStrategy != null) {
-                ContextStrategy contextStrategy = new ContextStrategy(mensajeStrategy);
-                contextStrategy.executeStrategy(usuario);
-                /*fin de strategy*/
-                /*State*/
-                estado = sorteoUsuario.accion(usuario);
-                usuario.setEstado(estado);
-                /*fin de State*/
-                /*Modifico usuario*/
-                this.modificaUsuario(usuario);
+            MensajeStrategy mensajeStrategy = null;
+            if (usuario.getContactos().getDescripcion().equals("EMAIL")) {
+                mensajeStrategy = contextStrategy.findStrategy(StrategyName.MailMensaje);
+            } else if (usuario.getContactos().getDescripcion().equals("SMS")) {
+                mensajeStrategy = contextStrategy.findStrategy(StrategyName.SmsMensaje);
             }
+
+            mensajeStrategy.enviarMensaje(usuario);
+            /*fin de strategy*/
+
+            /*State*/
+            estado = sorteoUsuario.accion(usuario);
+            usuario.setEstado(estado);
+            /*fin de State*/
+            /*Modifico usuario*/
+            this.modificaUsuario(usuario);
+
         }
 
     }
