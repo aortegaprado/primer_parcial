@@ -1,6 +1,5 @@
 package com.gdd.primer_parcial.service.patrones.strategy;
 
-import com.gdd.primer_parcial.model.Usuarios;
 import com.gdd.primer_parcial.service.util.StrategyName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

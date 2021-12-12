@@ -29,8 +29,9 @@ public class smsSenderAdapterImpl implements SmsSender {
         PhoneNumber from = new PhoneNumber(twilioConfiguracion.getTrialNumber());
         String message = smsRequest.getMensaje();
 
-        MessageCreator creator=Message.creator(to ,from,message );
+       MessageCreator creator=Message.creator(to ,from,message );
         creator.create();
+
         LOGGER.info("Send sms {}"+ smsRequest);
     }
 }

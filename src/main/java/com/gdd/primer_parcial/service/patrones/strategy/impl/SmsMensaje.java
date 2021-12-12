@@ -3,8 +3,8 @@ package com.gdd.primer_parcial.service.patrones.strategy.impl;
 import com.gdd.primer_parcial.model.SmsRequest;
 import com.gdd.primer_parcial.model.UsuarioPremio;
 import com.gdd.primer_parcial.model.Usuarios;
+import com.gdd.primer_parcial.service.patrones.adapter.impl.ServiceClientParaAdapter;
 import com.gdd.primer_parcial.service.patrones.strategy.MensajeStrategy;
-import com.gdd.primer_parcial.service.twilio.impl.ServiceClientParaAdapter;
 import com.gdd.primer_parcial.service.util.StrategyName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,6 @@ ServiceClientParaAdapter serviceClientParaAdapter;
 
     @Override
     public String enviarMensaje(Usuarios usuarios) {
-        System.out.println(usuarios.getPosicionPremio());
         String posicion = "";
         if (usuarios.getPosicionPremio() == 1) {
             posicion = "Primer Lugar";
