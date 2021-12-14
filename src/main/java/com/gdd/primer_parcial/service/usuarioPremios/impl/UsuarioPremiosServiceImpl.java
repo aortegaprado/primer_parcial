@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class UsuarioPremiosServiceImpl implements UsuarioPremiosService {
     @Autowired
-    UsuarioPremioDAO usuarioPremioDAO;
+    private UsuarioPremioDAO usuarioPremioDAO;
     @Override
     public List<UsuarioPremio> getAllPremios() {
         return usuarioPremioDAO.findAll();
@@ -20,6 +20,7 @@ public class UsuarioPremiosServiceImpl implements UsuarioPremiosService {
 
     @Override
     public List<UsuarioPremio> getPremiosByUsuario(Integer idUsuario) {
+
         return usuarioPremioDAO.getByIdUsuario(idUsuario);
     }
 

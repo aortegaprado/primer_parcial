@@ -11,12 +11,7 @@ import java.util.Set;
 @Component
 public class ContextStrategy {
 
-    /* @Autowired
-     private MensajeStrategy mensajeStrategy;
 
-     public String executeStrategy(Usuarios usuarios){
-         return mensajeStrategy.enviarMensaje(usuarios);
-     }*/
     private Map<StrategyName, MensajeStrategy> strategies;
 
     @Autowired

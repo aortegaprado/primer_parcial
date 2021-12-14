@@ -1,7 +1,7 @@
-package com.gdd.primer_parcial.service.patrones.adapter.impl;
+package com.gdd.primer_parcial.service.patrones.adapter;
 
 import com.gdd.primer_parcial.model.SmsRequest;
-import com.gdd.primer_parcial.service.patrones.adapter.SmsSender;
+import com.gdd.primer_parcial.service.patrones.adapter.impl.SmsSenderAdapterImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -10,7 +10,7 @@ public class ServiceClientParaAdapter {
     private final SmsSender smsSender;
 
     @Autowired
-    public ServiceClientParaAdapter(@Qualifier("twilio") smsSenderAdapterImpl twilioSmsSender) {
+    public ServiceClientParaAdapter(@Qualifier("twilio") SmsSenderAdapterImpl twilioSmsSender) {
         this.smsSender = twilioSmsSender;
     }
 

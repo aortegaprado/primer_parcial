@@ -1,16 +1,22 @@
 package com.gdd.primer_parcial.controller;
 
+import com.gdd.primer_parcial.model.Usuarios;
 import com.gdd.primer_parcial.service.patrones.composite.Premio;
 import com.gdd.primer_parcial.service.patrones.composite.impl.RegaloCompuesto;
 import com.gdd.primer_parcial.service.usuario.SorteosService;
 import com.gdd.primer_parcial.service.usuario.UsuarioService;
 import com.gdd.primer_parcial.service.util.composite.SetPremiosComposite;
+import dto.UsuariosDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 
 @RestController
@@ -43,11 +49,15 @@ public class InicioRest {
         setPremiosComposite.setearArbolComposite(premio, premio1, premio2, premio3);
 
         /*sortear premios usuarios con estado Participar*/
-        sorteosService.sorteoDePremios(premio, premio1, premio2, premio3);
+        List<UsuariosDTO> usuarios= sorteosService.sorteoDePremios(premio, premio1, premio2, premio3);
 
-        /*informar ganadores*/
+        if (usuarios.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body("{\"description\":\"No se puedo realizar el sorteo\"}");
+        }
 
-        return null;
+        return ResponseEntity.ok(usuarios);
 
     }
 
@@ -58,7 +68,9 @@ public class InicioRest {
         /*entrega de mensaje a los ganadores*/
 
         usuarioService.entregaMensaje();
-        return null;
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body("{\"description\":\"LA información le llegara a su contacto, Gracias.\"}");
 
     }
 

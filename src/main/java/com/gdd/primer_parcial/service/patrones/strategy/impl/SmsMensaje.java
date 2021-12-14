@@ -3,7 +3,7 @@ package com.gdd.primer_parcial.service.patrones.strategy.impl;
 import com.gdd.primer_parcial.model.SmsRequest;
 import com.gdd.primer_parcial.model.UsuarioPremio;
 import com.gdd.primer_parcial.model.Usuarios;
-import com.gdd.primer_parcial.service.patrones.adapter.impl.ServiceClientParaAdapter;
+import com.gdd.primer_parcial.service.patrones.adapter.ServiceClientParaAdapter;
 import com.gdd.primer_parcial.service.patrones.strategy.MensajeStrategy;
 import com.gdd.primer_parcial.service.util.StrategyName;
 import org.springframework.beans.factory.annotation.Autowired;

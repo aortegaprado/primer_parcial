@@ -2,7 +2,7 @@ package com.gdd.primer_parcial.service.usuario.impl;
 
 import com.gdd.primer_parcial.dao.UsuariosDAO;
 import com.gdd.primer_parcial.model.Usuarios;
-import com.gdd.primer_parcial.service.patrones.stateMachine.SorteoUsuarioContexto;
+import com.gdd.primer_parcial.service.patrones.stateMachine.EstadoUsuarioContexto;
 import com.gdd.primer_parcial.service.patrones.strategy.ContextStrategy;
 import com.gdd.primer_parcial.service.patrones.strategy.MensajeStrategy;
 import com.gdd.primer_parcial.service.patrones.strategy.impl.MailMensaje;
@@ -20,7 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     private UsuariosDAO usuariosDAO;
     @Autowired
-    private SorteoUsuarioContexto sorteoUsuario;
+    private EstadoUsuarioContexto sorteoUsuario;
     @Autowired
     private ContextStrategy contextStrategy;
 

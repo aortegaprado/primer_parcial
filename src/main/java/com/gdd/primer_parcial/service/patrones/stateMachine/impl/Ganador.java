@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Ganador implements EstadoUsuario {
 
-    @Autowired
-    UsuarioService usuarioService;
-
     @Override
     public String accion(Usuarios usuario) {
         String estado = null;
