@@ -1,6 +1,5 @@
 package com.gdd.primer_parcial.service.usuario;
 
-import com.gdd.primer_parcial.model.Usuarios;
 import com.gdd.primer_parcial.service.patrones.composite.Premio;
 import dto.UsuariosDTO;
 

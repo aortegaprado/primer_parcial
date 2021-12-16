@@ -26,7 +26,7 @@ ServiceClientParaAdapter serviceClientParaAdapter;
         } else if (usuarios.getPosicionPremio() == 3) {
             posicion = "Tercer Lugar";
         }
-        String premios = null;
+        String premios = "";
         for (UsuarioPremio usuarioPremio : usuarios.getUsuarioPremios()) {
             premios = premios + "--" + usuarioPremio.getNombrePremio();
         }
